@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/header :: common-header" />
+
+<body>
+
+	<div th:replace="common/navbar :: common-navbar"></div>
+
+
+
+	<div class="container-fluid">
+
+		<div class="starter-template">
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="jumbotron">
+						<h1 th:text="#{copy.h1.text}"></h1>
+						<p th:text="#{copy.p.lead}"></p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="jumbotron">
+
+						<div class="row featurette">
+							<div class="col-md-7">
+								<h2 class="featurette-heading">
+									First featurette heading. <span class="text-muted">It'll
+										blow your mind.</span>
+								</h2>
+								<p class="lead">Donec ullamcorper nulla non metus auctor
+									fringilla. Vestibulum id ligula porta felis euismod semper.
+									Praesent commodo cursus magna, vel scelerisque nisl
+									consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+							</div>
+							<div class="col-md-5">
+								<img class="featurette-image img-responsive center-block"
+									th:src="@{/images/browser-icon-chrome.png}"
+									data-holder-rendered="true" />
+							</div>
+						</div>
+						<hr class="featurette-divider" />
+						<div class="row featurette">
+							<div class="col-md-7 col-md-push-5">
+								<h2 class="featurette-heading">
+									Oh yeah, it's that good. <span class="text-muted">See
+										for yourself.</span>
+								</h2>
+								<p class="lead">Donec ullamcorper nulla non metus auctor
+									fringilla. Vestibulum id ligula porta felis euismod semper.
+									Praesent commodo cursus magna, vel scelerisque nisl
+									consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+							</div>
+							<div class="col-md-5 col-md-pull-7">
+								<img class="featurette-image img-responsive center-block"
+									th:src="@{/images/browser-icon-firefox.png}"
+									data-holder-rendered="true" />
+							</div>
+						</div>
+						<hr class="featurette-divider" />
+						<div class="row featurette">
+							<div class="col-md-7">
+								<h2 class="featurette-heading">
+									Third featurette heading. <span class="text-muted">It'll
+										blow your mind.</span>
+								</h2>
+								<p class="lead">Donec ullamcorper nulla non metus auctor
+									fringilla. Vestibulum id ligula porta felis euismod semper.
+									Praesent commodo cursus magna, vel scelerisque nisl
+									consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+							</div>
+							<div class="col-md-5">
+								<img class="featurette-image img-responsive center-block"
+									th:src="@{/images/browser-icon-safari.png}"
+									data-holder-rendered="true" />
+							</div>
+						</div>
+						
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!-- /.container -->
+
+	<!-- Bootstrap core JavaScript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<div th:replace="common/header :: before-body-scripts"></div>
+
+</body>
+</html>

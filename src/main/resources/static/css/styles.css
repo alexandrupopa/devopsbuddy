@@ -1,5 +1,8 @@
 body {
-	padding-top: 60px;
+	padding-top: 120px;
+	background: #085078;
+	background: -webkit-linear-gradient(to left, #085078, #85D8CE);
+	background: linear-gradient(to left, #085078, #85D8CE);
 }
 
 .starter-template {
