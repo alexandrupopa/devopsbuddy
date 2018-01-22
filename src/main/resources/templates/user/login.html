@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/header :: common-header" />
+
+<body>
+
+	<div th:replace="common/navbar :: common-navbar"></div>
+
+
+
+<div class="container">
+
+		<div class="row">
+
+			<div class="col-md-6 col-md-offset-3">
+
+				<div class="well">
+
+					<div class="text-center">
+					
+						<h1 th:text="#{login.h1.text}"></h1>
+						<p class="lead" th:text="#{login.p.lead}"></p>
+						
+						<form id="contactForm"
+							  th:action="@{/login}"
+							  method="post"
+							  class="text-left">
+						
+							<div class="form-group">
+								<label for="username" th:text="#{form.login.username}"></label>
+								<input type="text" id="username" name="username" class="form-control"/>
+							</div>
+							
+							<div class="form-group">
+								<label for="password" th:text="#{form.login.password}"></label>
+								<input type="password" id="password" name="password" class="form-control"/>
+							</div>
+							
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary" th:text="#{navbar.login.text}"></button>
+							</div>
+								  
+						</form>
+							  
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!-- /.container -->
+
+	<!-- Bootstrap core JavaScript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<div th:replace="common/header :: before-body-scripts"></div>
+
+</body>
+</html>
