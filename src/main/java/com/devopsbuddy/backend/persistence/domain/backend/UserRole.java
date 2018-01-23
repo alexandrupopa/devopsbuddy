@@ -6,19 +6,24 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "user_role")
-public class UserRole implements Serializable{
+public class UserRole implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	public UserRole() {
-		
+
 	}
-	
+
+	public UserRole(User user, Role role) {
+		this.user = user;
+		this.role = role;
+	}
+
 	@Id
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
 	private User user;
-	
+
 	public User getUser() {
 		return user;
 	}
