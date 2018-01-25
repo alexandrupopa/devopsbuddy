@@ -192,25 +192,23 @@ public class User implements Serializable, UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
-		return null;
+		Set<GrantedAuthority> authorities = new HashSet<>();
+		userRoles.forEach(ur -> authorities.add(new Authority(ur.getRole().getName())));
+		return authorities;
 	}
 
 	@Override
 	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 }

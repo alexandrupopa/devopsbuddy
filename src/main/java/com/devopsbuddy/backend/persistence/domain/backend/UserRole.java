@@ -13,16 +13,23 @@ public class UserRole implements Serializable {
 	public UserRole() {
 
 	}
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
 
 	public UserRole(User user, Role role) {
 		this.user = user;
 		this.role = role;
 	}
 
-	@Id
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_id")
 	private User user;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "role_id")
+	private Role role;
 
 	public User getUser() {
 		return user;
@@ -40,12 +47,19 @@ public class UserRole implements Serializable {
 		this.role = role;
 	}
 
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((role == null) ? 0 : role.hashCode());
-		result = prime * result + ((user == null) ? 0 : user.hashCode());
+		result = prime * result + (int) (id ^ (id >>> 32));
 		return result;
 	}
 
@@ -58,21 +72,9 @@ public class UserRole implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		UserRole other = (UserRole) obj;
-		if (role == null) {
-			if (other.role != null)
-				return false;
-		} else if (!role.equals(other.role))
-			return false;
-		if (user == null) {
-			if (other.user != null)
-				return false;
-		} else if (!user.equals(other.user))
+		if (id != other.id)
 			return false;
 		return true;
 	}
 
-	@Id
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "role_id")
-	private Role role;
 }
