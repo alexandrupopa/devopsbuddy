@@ -8,7 +8,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.devopsbuddy.web.i18n.I18NService;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
