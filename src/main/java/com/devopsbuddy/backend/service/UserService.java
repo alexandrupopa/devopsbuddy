@@ -15,6 +15,8 @@ import com.devopsbuddy.backend.persistence.repositories.PlanRepository;
 import com.devopsbuddy.backend.persistence.repositories.RoleRepository;
 import com.devopsbuddy.backend.persistence.repositories.UserRepository;
 import com.devopsbuddy.enums.PlansEnum;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Service
 @Transactional(readOnly = true)
@@ -31,6 +33,8 @@ public class UserService {
 	
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
+	
+	private static final Logger LOG = LoggerFactory.getLogger(UserService.class);
 	
 	@Transactional
 	public User createUser(User user, PlansEnum plansEnum, Set<UserRole> userRoles) {
@@ -55,6 +59,13 @@ public class UserService {
 		
 		return user;
 		
+	}
+
+	@Transactional
+	public void updateUserPassword(long userId, String password) {
+		password = passwordEncoder.encode(password);
+		userRepository.updateUserPassword(userId, password);
+		LOG.debug("Password updated successfully for user id {} {}", userId, password);
 	}
 	
 }
